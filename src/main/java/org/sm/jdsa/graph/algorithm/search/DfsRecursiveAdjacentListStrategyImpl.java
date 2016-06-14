@@ -3,6 +3,7 @@ package org.sm.jdsa.graph.algorithm.search;
 import java.util.stream.IntStream;
 
 import org.sm.jdsa.graph.GraphAdjacencyListImpl;
+import org.sm.jdsa.list.Iterator;
 
 /**
  * 
@@ -43,9 +44,9 @@ public class DfsRecursiveAdjacentListStrategyImpl implements SearchStrategy {
 	private void dfsRecursive(int vertex) {
 		if (!visited[vertex]) {
 			visit(vertex);
-			graph.getDataStructure()[vertex].stream().forEach(
-				adjacent -> dfsRecursive(adjacent)
-				);
+			for (Iterator<Integer> iterator = graph.getDataStructure()[vertex].iterator(); iterator.hasNext();) {
+			  dfsRecursive(iterator.next());
+			}
 		}
 	}
 

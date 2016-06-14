@@ -3,6 +3,8 @@ package org.sm.jdsa.graph.algorithm.coloring;
 import java.util.stream.IntStream;
 
 import org.sm.jdsa.graph.GraphAdjacencyListImpl;
+import org.sm.jdsa.list.LinkedList;
+import org.sm.jdsa.list.Iterator;
 
 /**
  * 
@@ -84,11 +86,18 @@ public class ColoringAdjacentListStrategyImpl implements ColoringStrategy {
 	 */
 	private void loadAdjecentsColors(int vertex) {
 		resetAdjecentsColors();
-		graph.getDataStructure()[vertex].stream().forEach(adjacent -> {
-			if (vertexColors[adjacent] > -1) {
-				adjecentsColors[vertexColors[adjacent]] = true;
-			}			
-		});
+		LinkedList<Integer> vertexAdjecents = graph.getDataStructure()[vertex];
+		for (int i = 0; i < adjecentsColors.length; i++) {
+      
+    }
+		
+		for(Iterator<Integer> iterator = vertexAdjecents.iterator(); iterator.hasNext();) {
+		  int adjacent = iterator.next();
+      if (adjacent > -1) {
+        adjecentsColors[vertexColors[adjacent]] = true;
+      }     
+
+		}
 	}
 
 	

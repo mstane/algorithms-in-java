@@ -13,6 +13,10 @@ public interface List<E> {
 	int size();
 	
 	boolean isEmpty();
+	
+	Iterator<E> iterator();
+	
+	boolean addAll(List<E> l);
 		
 	
 }

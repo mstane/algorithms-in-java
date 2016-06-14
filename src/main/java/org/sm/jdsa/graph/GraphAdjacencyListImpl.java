@@ -1,7 +1,8 @@
 package org.sm.jdsa.graph;
 
-import java.util.LinkedList;
 import java.util.stream.Stream;
+
+import org.sm.jdsa.list.LinkedList;
 
 
 public class GraphAdjacencyListImpl implements Graph {

@@ -1,10 +1,10 @@
 package org.sm.jdsa.graph.algorithm.search;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 import org.sm.jdsa.graph.GraphAdjacencyListImpl;
+import org.sm.jdsa.list.LinkedList;
+import org.sm.jdsa.list.Stack;
 
 /**
  * 
@@ -22,7 +22,7 @@ public class DfsNonRecursiveAdjacentListStrategyImpl implements SearchStrategy {
 	private final int[] visitOrder;
 	private int visitCounter;
 	
-	private Deque<LinkedList<Integer>> stack = new LinkedList<>();
+	private Stack<LinkedList<Integer>> stack = new Stack<>(new LinkedList<>());
 	
 	public DfsNonRecursiveAdjacentListStrategyImpl(GraphAdjacencyListImpl graph) {
 		this.graph = graph;
@@ -53,9 +53,9 @@ public class DfsNonRecursiveAdjacentListStrategyImpl implements SearchStrategy {
 		visitAndAddToStack(startVertex);
 		
 		while (!stack.isEmpty()) {
-			LinkedList<Integer> adjacentList = stack.peekFirst();
-			int vertex = adjacentList.removeFirst();
-			if (adjacentList.isEmpty()) stack.removeFirst();
+			LinkedList<Integer> adjacentList = stack.peek();
+			int vertex = adjacentList.remove(0);
+			if (adjacentList.isEmpty()) stack.pop();
 			if (!visited[vertex]) {
 				visitAndAddToStack(vertex);
 			}
@@ -68,7 +68,7 @@ public class DfsNonRecursiveAdjacentListStrategyImpl implements SearchStrategy {
 		if (!graph.getDataStructure()[vertex].isEmpty()) {
 			LinkedList<Integer> newList = new LinkedList<>();
 			newList.addAll(graph.getDataStructure()[vertex]);
-			stack.addFirst(newList);
+			stack.push(newList);
 		}
 	}
 

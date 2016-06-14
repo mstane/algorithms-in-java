@@ -6,6 +6,8 @@ import java.util.stream.IntStream;
 
 import org.sm.jdsa.graph.GraphAdjacencyListImpl;
 
+import org.sm.jdsa.list.Iterator;
+
 /**
  * 
  * Breadth first search of a graph
@@ -46,9 +48,9 @@ public class BfsAdjacentListStrategyImpl implements SearchStrategy {
 			int vertex = queue.removeFirst();
 			if (!visited[vertex]) {
 				visit(vertex);
-				graph.getDataStructure()[vertex].stream().forEach(
-					adjacent -> queue.addLast(adjacent)
-				);
+				for (Iterator<Integer> iterator = graph.getDataStructure()[vertex].iterator(); iterator.hasNext();) {
+				  queue.addLast(iterator.next());
+				}
 			}
 		} while (!queue.isEmpty());
 		

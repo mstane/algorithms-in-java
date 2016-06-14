@@ -75,7 +75,20 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return size == 1;
+		return size < 1;
+	}
+	
+	@Override
+	public Iterator<E> iterator() {
+	  return new LinkedListIterator();
+	}
+	
+	@Override
+	public boolean addAll(List<E> l) {
+	  for (Iterator<E> it = l.iterator(); it.hasNext();) {
+	    add(it.next());
+	  }
+	  return true;
 	}
 	
 	private Node<E> getNode(int idx) {
@@ -101,5 +114,27 @@ public class LinkedList<E> implements List<E> {
 			this.next = next;
 		}
 	}
+	
+	private class LinkedListIterator implements Iterator<E> {
+	  
+	  Node<E> current;
+	  
+	  public LinkedListIterator() {
+	    current = first;
+	  } 
+	  
+	  @Override
+	  public boolean hasNext() {
+	    return current != null;
+	  }
+	  
+	  @Override
+	  public E next() {
+	    E e = current.element;
+	    current = current.next;
+	    return e;
+	  }
+	  
+	} 
 	
 }
