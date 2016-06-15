@@ -7,7 +7,7 @@ import org.sm.jdsa.graph.algorithm.mst.MstStrategy;
 import org.sm.jdsa.graph.algorithm.search.SearchStrategy;
 import org.sm.jdsa.graph.algorithm.shortestpath.ShortestPathStrategy;
 
-public class GraphAdjacencyMatrixWeghtedImpl implements Graph {
+public class GraphAdjacencyMatrixWeightedImpl implements Graph {
 	
 	private final boolean directed;
 	private final int graphSize;
@@ -49,14 +49,14 @@ public class GraphAdjacencyMatrixWeghtedImpl implements Graph {
 		}
 		
 		@Override
-		public GraphAdjacencyMatrixWeghtedImpl build() {
-			return new GraphAdjacencyMatrixWeghtedImpl(this);
+		public GraphAdjacencyMatrixWeightedImpl build() {
+			return new GraphAdjacencyMatrixWeightedImpl(this);
 		}
 
 
 	}
 	
-	private GraphAdjacencyMatrixWeghtedImpl(Builder graphBuilder) {
+	private GraphAdjacencyMatrixWeightedImpl(Builder graphBuilder) {
 		this.graphSize = graphBuilder.graphSize;
 		this.dataStructure = graphBuilder.dataStructure;
 		this.directed = graphBuilder.directed;

@@ -3,7 +3,7 @@ package org.sm.jdsa.graph;
 import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
-import org.sm.jdsa.graph.GraphAdjacencyMatrixWeghtedImpl;
+import org.sm.jdsa.graph.GraphAdjacencyMatrixWeightedImpl;
 import org.sm.jdsa.graph.algorithm.shortestpath.ShortestPathStrategy;
 import org.sm.jdsa.graph.algorithm.shortestpath.ShortestPathDijkstraAdjacencyMatrixStrategyImpl;
 
@@ -16,7 +16,7 @@ public class ShortestPathDijkstraTest {
 // cost = {0, 15, 20, 16, 7, 22, 13, 23}
 // path = {-1, 6,  1,  1, 0,  1,  4,  3}
 	  
-   GraphAdjacencyMatrixWeghtedImpl graph = new GraphAdjacencyMatrixWeghtedImpl.Builder(8, false)
+   GraphAdjacencyMatrixWeightedImpl graph = new GraphAdjacencyMatrixWeightedImpl.Builder(8, false)
    		.addEdge(0, 4, 7)
    		.addEdge(1, 2, 5)
    		.addEdge(1, 3, 1)

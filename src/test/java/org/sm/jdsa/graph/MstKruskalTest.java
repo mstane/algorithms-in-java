@@ -13,7 +13,7 @@ public class MstKruskalTest {
 	  public void test1() {
 
 		  
-	   GraphAdjacencyMatrixWeghtedImpl graph = new GraphAdjacencyMatrixWeghtedImpl.Builder(8, false)
+	   GraphAdjacencyMatrixWeightedImpl graph = new GraphAdjacencyMatrixWeightedImpl.Builder(8, false)
 	   		.addEdge(0, 2, 4)
 	   		.addEdge(0, 3, 2)
 	   		.addEdge(1, 2, 5)

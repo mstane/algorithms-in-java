@@ -5,19 +5,19 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.stream.IntStream;
 
-import org.sm.jdsa.graph.GraphAdjacencyMatrixWeghtedImpl;
+import org.sm.jdsa.graph.GraphAdjacencyMatrixWeightedImpl;
 import org.sm.jdsa.hash.ClosedHashTable;
 import org.sm.jdsa.hash.HashTable;
 
 public class ShortestPathDijkstraAdjacencyMatrixStrategyImpl implements ShortestPathStrategy {
 
-	private final GraphAdjacencyMatrixWeghtedImpl graph;
+	private final GraphAdjacencyMatrixWeightedImpl graph;
 	private final int graphSize;
 	
 	Queue<Vertex> vertexPriorityQueue;
 	HashTable<Integer, Vertex> vertexMap;
 	
-	public ShortestPathDijkstraAdjacencyMatrixStrategyImpl(GraphAdjacencyMatrixWeghtedImpl graph) {
+	public ShortestPathDijkstraAdjacencyMatrixStrategyImpl(GraphAdjacencyMatrixWeightedImpl graph) {
 		this.graph = graph;
 		this.graphSize = graph.getGraphSize();
 		

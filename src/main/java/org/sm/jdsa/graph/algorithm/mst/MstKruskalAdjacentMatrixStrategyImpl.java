@@ -6,18 +6,18 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 import org.sm.jdsa.disjsets.DisjointSets;
-import org.sm.jdsa.graph.GraphAdjacencyMatrixWeghtedImpl;
+import org.sm.jdsa.graph.GraphAdjacencyMatrixWeightedImpl;
 
 public class MstKruskalAdjacentMatrixStrategyImpl implements MstStrategy {
 	
-	private final GraphAdjacencyMatrixWeghtedImpl graph;
+	private final GraphAdjacencyMatrixWeightedImpl graph;
 	private final int graphSize;
 	
 	Queue<Edge> edgePriorityQueue;
 	DisjointSets edgeDisjointSets;
 	List<Edge> mstEdgeList;
 
-	public MstKruskalAdjacentMatrixStrategyImpl(GraphAdjacencyMatrixWeghtedImpl graph) {
+	public MstKruskalAdjacentMatrixStrategyImpl(GraphAdjacencyMatrixWeightedImpl graph) {
 		this.graph = graph;
 		this.graphSize = graph.getGraphSize();
 		
