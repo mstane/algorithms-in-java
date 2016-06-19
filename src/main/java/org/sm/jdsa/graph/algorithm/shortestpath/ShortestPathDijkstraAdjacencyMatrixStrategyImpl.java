@@ -67,7 +67,7 @@ public class ShortestPathDijkstraAdjacencyMatrixStrategyImpl implements Shortest
 				.toArray();
 	}
 	
-    public static Comparator<Vertex> vertexComparator = new Comparator<Vertex>(){
+    private static Comparator<Vertex> vertexComparator = new Comparator<Vertex>(){
         @Override
         public int compare(Vertex v1, Vertex v2) {
             return v1.cost - v2.cost;

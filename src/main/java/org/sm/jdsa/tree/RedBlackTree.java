@@ -43,10 +43,10 @@ public class RedBlackTree<E extends Comparable<E>> implements BinarySearchTree<E
 	private void checkAndRecolorNodes(RbNode<E> n) {
 		while (n.parent.isRed()) {
 			if (n.parent == n.parent.parent.left) {
-				RbNode<E> p = n.parent.parent.right;
-				if (p.isRed()) {
+				RbNode<E> uncle = n.parent.parent.right;
+				if (uncle.isRed()) {
 					n.parent.setBlack();
-					p.setBlack();
+					uncle.setBlack();
 					n.parent.parent.setRed();
 					n = n.parent.parent;
 				} else if (n == n.parent.right) {
@@ -58,10 +58,10 @@ public class RedBlackTree<E extends Comparable<E>> implements BinarySearchTree<E
 					rotateRight(n.parent.parent);
 				}
 			} else {
-				RbNode<E> p = n.parent.parent.left;
-				if (p.isRed()) {
+				RbNode<E> uncle = n.parent.parent.left;
+				if (uncle.isRed()) {
 					n.parent.setBlack();
-					p.setBlack();
+					uncle.setBlack();
 					n.parent.parent.setRed();
 					n = n.parent.parent;
 				} else if (n == n.parent.left) {
