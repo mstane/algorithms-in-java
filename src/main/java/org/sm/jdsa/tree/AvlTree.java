@@ -122,7 +122,7 @@ public class AvlTree<E extends Comparable<E>> implements BinarySearchTree<E> {
 	  else if (n.right == null)
 		  return n;
 	  else
-		  return n.right;
+		  return findMax(n.right);
   }
   
 }
